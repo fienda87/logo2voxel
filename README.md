@@ -31,41 +31,6 @@
 - **Image & Processing:** Pillow (PIL), NumPy, `rembg` (Background Removal)
 - **AI Integration:** Groq SDK (Llama3 Vision / Color Analysis)
 
----
-
-## 🚀 Quick Start (Local Development)
-
-### Prerequisites
-- Node.js (v18+)
-- Python (v3.10+)
-
-### 1. Backend Setup
-```bash
-cd backend
-python -m venv venv
-# On Windows:
-.\venv\Scripts\activate
-# On Mac/Linux:
-source venv/bin/activate
-
-pip install -r requirements.txt
-uvicorn main:app --reload
-```
-> Backend server starts at `http://localhost:8000`.
-
-### 2. Frontend Setup
-```bash
-cd frontend
-npm install
-npm run dev
-```
-> Frontend dev server starts at `http://localhost:5173`.
-
-### 3. Open in Browser
-Navigate to [http://localhost:5173](http://localhost:5173) and upload your logo or type custom text to start generating 3D voxel models.
-
----
-
 ## 📁 Project Structure
 
 ```
