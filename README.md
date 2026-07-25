@@ -31,46 +31,6 @@
 - **Image & Processing:** Pillow (PIL), NumPy, `rembg` (Background Removal)
 - **AI Integration:** Groq SDK (Llama3 Vision / Color Analysis)
 
-## 📁 Project Structure
-
-```
-logo-voxel-3d/
-├── backend/
-│   ├── main.py              # FastAPI application entry point
-│   ├── config.py            # Environment config (API keys, ports)
-│   ├── routers/
-│   │   └── convert.py       # API routes (convert, health, samples)
-│   ├── services/
-│   │   ├── voxel_generator.py    # Voxel grid generation logic
-│   │   ├── image_processor.py    # Image validation & loading
-│   │   ├── background_remover.py # Background removal (rembg)
-│   │   └── groq_service.py       # Groq AI analysis
-│   ├── samples/             # Sample logo images
-│   └── requirements.txt
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   ├── SidebarPanel.tsx   # Main control panel
-│   │   │   ├── VoxelViewer.tsx    # 3D canvas & scene setup
-│   │   │   ├── VoxelMesh.tsx      # Voxel geometry rendering
-│   │   │   ├── ExportPanel.tsx    # GLB/OBJ/JSON export
-│   │   │   └── ToastContainer.tsx # Toast notifications
-│   │   ├── store/
-│   │   │   └── voxelStore.ts      # Zustand global state
-│   │   ├── utils/
-│   │   │   ├── buildVoxelGeometry.ts  # Three.js geometry builder
-│   │   │   ├── textToVoxel.ts         # Text to voxel conversion
-│   │   │   ├── api.ts                 # HTTP client
-│   │   │   ├── types.ts               # TypeScript types
-│   │   │   └── toast.ts               # Toast system
-│   │   └── index.css             # Tailwind CSS + custom styles
-│   ├── package.json
-│   └── vite.config.ts
-└── README.md
-```
-
----
-
 ## 🎮 Controls Overview
 
 | Control | Description |
@@ -90,17 +50,6 @@ logo-voxel-3d/
 
 ---
 
-## 📦 API Reference
-
-| Endpoint | Method | Description |
-|----------|--------|-------------|
-| `/api/convert` | `POST` | Upload image & return voxel grids for all resolutions |
-| `/api/text-to-voxel` | `POST` | Generate voxels from rendered text image |
-| `/api/samples` | `GET` | Fetch pre-loaded sample logos |
-| `/api/health` | `GET` | Backend health check |
-
----
-
 ## 🧠 How It Works
 
 1. **Upload / Type:** User uploads a logo image or types custom text.
@@ -109,18 +58,6 @@ logo-voxel-3d/
 4. **Voxelization:** The processed image is sampled at multiple resolutions and extruded into a flat 3D voxel grid (1–3 layers thick).
 5. **Rendering:** Three.js builds merged BufferGeometry with vertex colors, flat shading, and per-voxel material properties.
 6. **Customization:** All parameters (height, gap, color, material, lighting) update the scene in real-time via Zustand state.
-
----
-
-## 🌐 Environment Variables
-
-Create a `.env` file in the `backend/` directory:
-
-```env
-GROQ_API_KEY=gsk_your_key_here
-PORT=8000
-CORS_ORIGINS=["*"]
-```
 
 ---
 
